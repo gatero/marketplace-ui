@@ -13,6 +13,8 @@ services:
       - $SITE_VOLUME
     env_file:
       - .env
+    environment:
+      VIRTUAL_HOST: $SITE_VIRTUAL_HOST
 networks:
   default:
     name: $NETWORK
