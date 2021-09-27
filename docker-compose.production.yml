@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  api:
+    image: $SITE_IMAGE
+    container_name: $SITE_CONTAINER_NAME
+    command: bash -c 'yarn && yarn dev'
+    ports:
+      - $SITE_PORT:$SITE_PORT
+    expose:
+      - $SITE_PORT
+    working_dir: $SITE_WORKING_DIR
+    volumes:
+      - $SITE_VOLUME
+    env_file:
+      - .env
+    environment:
+      VIRTUAL_HOST: $SITE_VIRTUAL_HOST
+networks:
+  default:
+    name: $NETWORK
